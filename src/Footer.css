@@ -1,0 +1,11 @@
+footer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: black;
+  color: red;
+  bottom: 0px;
+  width: 100%;
+  font-family: 'Roboto';
+}

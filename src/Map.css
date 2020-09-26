@@ -1,0 +1,60 @@
+main {
+  display: flex;
+  justify-content: center;
+}
+
+.map {
+  background-image: url('./atlanticMap.jpg');
+  background-size: cover;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+  border: 2px solid black;
+  width: 700px;
+  height: 400px;
+}
+
+.location {
+  opacity: 0;
+}
+
+.warmer {
+  opacity: 1;
+  background-color: red;
+}
+
+.way-off {
+  opacity: 1;
+  background-color: black;
+}
+
+.found-it {
+  opacity: 1;
+  background-color: green;
+}
+
+.location:hover {
+  cursor: pointer;
+}
+
+.reset-container {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 400px;
+  height: 150px;
+  align-items: flex-end;
+}
+
+.reset-btn {
+  color: red;
+  border: 0px;
+  border-radius: 10px;
+  height: 30px;
+  background-color: seashell;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.reset-btn:hover {
+  cursor: pointer;
+}

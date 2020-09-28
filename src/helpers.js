@@ -3,7 +3,7 @@ import gameOver from './images/game-over4.jpg';
 import gameOver2 from './images/game-over3.jpg';
 import crazyIvan from './images/crazy-ivan3.jpg';
 import plan from './images/plan2.jpg';
-import magma from './images/magma2.jpg';
+import magma from './images/magma3.jpg';
 import win from './images/win2.jpg';
 import davenport from './images/davenport.jpg';
 import mancuso from './images/mancuso.jpg';
@@ -23,21 +23,6 @@ const badLocations = [
 ];
 const goodLocations = locations.filter(loc => !badLocations.includes(loc));
 const availableLocs = [...goodLocations];
-// Randomly assign a ship to one of body of water point locations
-function assignShip() {
-  const randomIndex = Math.floor((Math.random() * availableLocs.length));
-  const shipLocation = availableLocs[randomIndex];
-  availableLocs.splice(randomIndex, 1);
-  return shipLocation;
-}
-// Place the Red October and 5 enemy Russian subs randomly on the map
-const redOctoberLocation = assignShip();
-const russianSub1Loc = assignShip();
-const russianSub2Loc = assignShip();
-const russianSub3Loc = assignShip();
-const russianSub4Loc = assignShip();
-const russianSub5Loc = assignShip();
-const russianSubLocations = [russianSub1Loc, russianSub2Loc, russianSub3Loc, russianSub4Loc, russianSub5Loc];
 // Helper function for determining proximity to Russian subs
 function isClose(tgt, num) {
   const close = [num - 15, num - 16, num - 17, num + 1, num - 1, num + 15, num + 16, num + 17];
@@ -48,5 +33,24 @@ function randomPhoto(photos) {
   const randomIndex = Math.floor(Math.random() * photos.length);
   return photos[randomIndex];
 }
+// Helper function to clear board
+function newGame(stateSetter1, stateSetter2, stateSetter3, locs) {
+  stateSetter1(prev => {
+    const cleanMap = prev.map(loc => {
+      loc.show = false;
+      loc.style = 'location';
+      return {...loc};
+    });
+    return cleanMap;
+  });
+  stateSetter2(0);
+  stateSetter3(locs);
+}
+// Helper function for assigning Ship Locs
+function assignShip(location) {
+  const randomIndex = Math.floor((Math.random() * location.length));
+  const shipLocation = location[randomIndex];
+  return shipLocation;
+}
 // Export the all location, body of water location, and the sub location variables
-export { locations, goodLocations, redOctoberLocation, russianSubLocations, isClose, randomPhoto, gameOver, gameOver2, mancuso, plan, davenport, crazyIvan, magma, win, outOfControl, skip };
+export { locations, goodLocations, availableLocs, isClose, randomPhoto, newGame, gameOver, gameOver2, mancuso, plan, davenport, assignShip, crazyIvan, magma, win, outOfControl, skip };

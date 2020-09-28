@@ -50,7 +50,7 @@ function Map() {
     const { value } = event.target;
     const point = Number(value);
     setTurns(prev => prev + 1);
-    // Render ose game meme and reset game after a certain number of turns
+    // Render lose game meme and reset game after a certain number of turns
     if (turns >= 19) {
       updateMap(true, gameOver2, 'warmer', point);
       setStartGame(false);

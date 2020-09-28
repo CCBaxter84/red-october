@@ -1,3 +1,7 @@
+This is a game that operates similarly to Battleship, Hangman, and Minesweeper. It is based off the Sean Connery movie -- The Hunt for Red October.
+
+Like Battleship, you're looking for a ship that's randomly hidden in a large body of water. Like Hangman, you only have a certain number of guesses before you'll lose the game. Like Minesweeper, you get feedback if you're adjacent to your goal or something hostile.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
